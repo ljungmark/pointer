@@ -1,0 +1,30 @@
+.cursor {
+    mix-blend-mode: difference;
+    pointer-events: none;
+    position: fixed;
+    z-index: 5;
+}
+.cursor._hidden::after {
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+.cursor._active::after {
+    height: 2rem;
+    width: 2rem;
+}
+.cursor::after {
+    background-color: var(--color-cursor);
+    border-radius: 50%;
+    content: "";
+    height: 1.6rem;
+    opacity: 1;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition:
+        height 250ms,
+        opacity 250ms,
+        width 250ms;
+    width: 1.6rem;
+    will-change: left, top;
+}
